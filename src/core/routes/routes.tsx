@@ -1,10 +1,17 @@
 import { createBrowserRouter } from "react-router-dom";
-import { SigninPage } from "../../pages";
+import { DashboardHomePage, SigninPage } from "../../pages";
+import { AppProtectedRoutes } from "@/modules/auth";
 
 export const appRoutes = createBrowserRouter([
 	{
 		path: "/",
-		element: "Home Page",
+		Component: AppProtectedRoutes,
+		children: [
+			{
+				index: true,
+				Component: DashboardHomePage,
+			},
+		],
 	},
 	{
 		path: "/auth/signin",

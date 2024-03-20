@@ -11,10 +11,18 @@ Setup
 
 Create Auth
 
+- Create AppLocalStorageService
+- Handle absolute imports
 - Create auth module
-- Create LoginForm components
 - Create authSlice
-- Handle protected routes
+- Create AppAuthService
+- Create AppProtectedRoutes component
+- Create empty DashboardHomePage
+- Create SigninPage component
+- Create AppSigninButton component
+- Create LogoutButton component
+
+================================================================================
 
 Create ad module
 

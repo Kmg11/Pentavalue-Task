@@ -3,7 +3,9 @@ import ReactDOM from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { Provider } from "react-redux";
-import { appRoutes, store, theme } from "./core";
+import { store } from "./core/store";
+import { theme } from "./core/styles";
+import { appRoutes } from "./core/routes";
 
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
