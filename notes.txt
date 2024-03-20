@@ -24,16 +24,23 @@ Create Auth
 
 ================================================================================
 
-Create ad module
+Create ad module, IAd interface and adSlice
 
-- Create ad module
-- Create adSlice
-- Create AdCard components
-- Create AdList components
+================================================================================
+
+- Create AdCard component
+- Create AdList component
+- Create AdPaginatedList component
+- Create AdTimeline component
 - Create AdForm components
 - Handle create ad functionality
 - Handle update ad functionality
 - Handle delete ad functionality
+- Handle video upload
+- Move authSlice to auth module
+- remove axios
+- remove ads slice if not needed
+- handle loading and error state
 
 Testing
 
