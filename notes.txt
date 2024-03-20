@@ -1,0 +1,44 @@
+Setup
+
+- Clean project files
+- Install [react-hook-form, @hookform/resolvers, yup, axios]
+- Setup React Router
+- Setup MaterialUI
+- Setup Redux
+- Create project structure
+
+================================================================================
+
+Create Auth
+
+- Create auth module
+- Create LoginForm components
+- Create authSlice
+- Handle protected routes
+
+Create ad module
+
+- Create ad module
+- Create adSlice
+- Create AdCard components
+- Create AdList components
+- Create AdForm components
+- Handle create ad functionality
+- Handle update ad functionality
+- Handle delete ad functionality
+
+Testing
+
+- Test all components
+- Test all hooks
+- Test all functions
+
+Documentation
+
+- Document all functions, components, and hooks
+- Create README.md file for folders
+- Create README.md file for project
+
+Finish Projects
+
+- Remove notes.txt file
