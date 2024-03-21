@@ -1,6 +1,6 @@
 import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { IAd } from "@/modules/ad";
+import { IAd } from "@/modules/ad-module";
 
 interface IGetAdsResponse {
 	message: "Success";
@@ -12,12 +12,17 @@ interface IGetAdsResponse {
 	};
 }
 
+interface IGetAdsRequest {
+	page: number;
+	limit: number;
+}
+
 export const fetchAds = createAsyncThunk(
 	"ads/fetchAds",
-	async (_, thunkAPI) => {
+	async ({ page, limit }: IGetAdsRequest, thunkAPI) => {
 		const response = await axios.get<IGetAdsResponse>(
 			"https://ads-back.shutterstudio.io/ads",
-			{ signal: thunkAPI.signal }
+			{ signal: thunkAPI.signal, params: { page, limit } }
 		);
 
 		return response.data;
@@ -25,13 +30,13 @@ export const fetchAds = createAsyncThunk(
 );
 
 interface AdsState {
-	ads: IAd[];
+	ads: IGetAdsResponse["data"];
 	loading: boolean;
 	error: string | null;
 }
 
 const initialState: AdsState = {
-	ads: [],
+	ads: { result: [], thisPage: 0, allPages: 0, count: 0 },
 	loading: false,
 	error: null,
 };
@@ -41,14 +46,20 @@ export const adsSlice = createSlice({
 	initialState,
 	reducers: {
 		createAd: (state, action: PayloadAction<IAd>) => {
-			state.ads.push(action.payload);
+			state.ads.result.push(action.payload);
 		},
+
 		deleteAd: (state, action: PayloadAction<IAd["id"]>) => {
-			state.ads = state.ads.filter((ad) => ad.id !== action.payload);
+			state.ads.result = state.ads.result.filter(
+				(ad) => ad.id !== action.payload
+			);
 		},
+
 		updateAd: (state, action: PayloadAction<IAd>) => {
-			const index = state.ads.findIndex((ad) => ad.id === action.payload.id);
-			state.ads[index] = action.payload;
+			const index = state.ads.result.findIndex(
+				(ad) => ad.id === action.payload.id
+			);
+			state.ads.result[index] = action.payload;
 		},
 	},
 	extraReducers: (builder) => {
@@ -63,7 +74,7 @@ export const adsSlice = createSlice({
 		});
 
 		builder.addCase(fetchAds.fulfilled, (state, action) => {
-			state.ads = action.payload.data.result;
+			state.ads = action.payload.data;
 			state.loading = false;
 			state.error = null;
 		});

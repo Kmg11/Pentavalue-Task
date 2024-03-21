@@ -28,19 +28,16 @@ Create ad module, IAd interface and adSlice
 
 ================================================================================
 
-- Create AdCard component
-- Create AdList component
-- Create AdPaginatedList component
-- Create AdTimeline component
+Create [AdCard, AdList, AdPaginatedList, AdTimeline, AppPagination, AppMessage] components
+
+================================================================================
+
 - Create AdForm components
-- Handle create ad functionality
-- Handle update ad functionality
-- Handle delete ad functionality
 - Handle video upload
-- Move authSlice to auth module
-- remove axios
-- remove ads slice if not needed
-- handle loading and error state
+- Create MainLayout and add logout button
+- Check responsive
+- Create delete modal
+- Document AdForm
 
 Testing
 
