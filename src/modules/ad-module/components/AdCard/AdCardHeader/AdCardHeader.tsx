@@ -1,5 +1,5 @@
 import { IAd } from "@/modules/ad-module";
-import { Box, IconButton, Typography } from "@mui/material";
+import { Box, IconButton } from "@mui/material";
 import { EditOutlined, DeleteOutline } from "@mui/icons-material";
 import { AdCardHeaderTime } from "./AdCardHeaderTime/AdCardHeaderTime";
 
@@ -16,23 +16,32 @@ export function AdCardHeader({ from_time, to_time }: AdCardHeaderProps) {
 				display: "flex",
 				justifyContent: "space-between",
 				alignItems: "center",
-				gap: 2,
+				gap: 1,
 				marginBottom: 2,
 				flexWrap: "wrap",
+				flexDirection: { xs: "column", sm: "row" },
 			}}
 		>
 			<Box
 				component="section"
-				sx={{ display: "flex", alignItems: "center", gap: 1 }}
+				sx={{
+					display: "flex",
+					alignItems: "center",
+					gap: 1,
+					flexDirection: { xs: "column", sm: "row" },
+				}}
 			>
 				<AdCardHeaderTime>From: {formattedFromTime}</AdCardHeaderTime>
-				<Typography variant="subtitle2">-</Typography>
 				<AdCardHeaderTime>To: {formattedToTime}</AdCardHeaderTime>
 			</Box>
 
 			<Box
 				component="section"
-				sx={{ display: "flex", alignItems: "center", gap: 1 }}
+				sx={{
+					display: "flex",
+					alignItems: "center",
+					gap: 1,
+				}}
 			>
 				<IconButton size="small">
 					<EditOutlined fontSize="small" />

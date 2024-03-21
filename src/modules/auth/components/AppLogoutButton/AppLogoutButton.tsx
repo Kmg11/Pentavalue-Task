@@ -11,15 +11,17 @@
  *   );
  * }
  */
-import { Button } from "@mui/material";
+import { Button, ButtonProps } from "@mui/material";
 import { authActions, useAppDispatch } from "@/core/store";
 import { useNavigate } from "react-router-dom";
+
+interface AppLogoutButtonProps extends ButtonProps {}
 
 /**
  * Component for logging out a user.
  * @returns {JSX.Element} A React component representing the logout button.
  */
-export function AppLogoutButton(): JSX.Element {
+export function AppLogoutButton(props: AppLogoutButtonProps): JSX.Element {
 	const dispatch = useAppDispatch();
 	const navigate = useNavigate();
 
@@ -29,7 +31,7 @@ export function AppLogoutButton(): JSX.Element {
 	};
 
 	return (
-		<Button variant="contained" color="primary" onClick={signOut}>
+		<Button variant="contained" color="primary" onClick={signOut} {...props}>
 			Logout
 		</Button>
 	);

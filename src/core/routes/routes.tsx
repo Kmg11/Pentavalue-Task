@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import { DashboardHomePage, SigninPage } from "../../pages";
+import { AppDashboardLayout, DashboardHomePage, SigninPage } from "../../pages";
 import { AppProtectedRoutes } from "@/modules/auth";
 
 export const appRoutes = createBrowserRouter([
@@ -8,8 +8,13 @@ export const appRoutes = createBrowserRouter([
 		Component: AppProtectedRoutes,
 		children: [
 			{
-				index: true,
-				Component: DashboardHomePage,
+				Component: AppDashboardLayout,
+				children: [
+					{
+						index: true,
+						Component: DashboardHomePage,
+					},
+				],
 			},
 		],
 	},

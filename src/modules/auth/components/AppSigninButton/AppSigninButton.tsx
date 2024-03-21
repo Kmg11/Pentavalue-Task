@@ -11,16 +11,18 @@
  *   );
  * }
  */
-import { Button } from "@mui/material";
+import { Button, ButtonProps } from "@mui/material";
 import { authActions, useAppDispatch } from "@/core/store";
 import { useNavigate } from "react-router-dom";
 import { IUser } from "../..";
+
+interface AppSigninButtonProps extends ButtonProps {}
 
 /**
  * Component for simulating a sign-in action as an admin.
  * @returns {JSX.Element} A React component representing the sign-in button.
  */
-export function AppSigninButton(): JSX.Element {
+export function AppSigninButton(props: AppSigninButtonProps): JSX.Element {
 	const dispatch = useAppDispatch();
 	const navigate = useNavigate();
 
@@ -36,7 +38,7 @@ export function AppSigninButton(): JSX.Element {
 	};
 
 	return (
-		<Button variant="contained" color="primary" onClick={signIn}>
+		<Button variant="contained" color="primary" onClick={signIn} {...props}>
 			Sign in as admin
 		</Button>
 	);
