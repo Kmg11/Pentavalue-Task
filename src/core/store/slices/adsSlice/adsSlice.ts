@@ -1,33 +1,8 @@
-import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { IAd } from "@/modules/ad-module";
+import { IGetAdsResponse, fetchAds } from ".";
 
-interface IGetAdsResponse {
-	message: "Success";
-	data: {
-		result: IAd[];
-		thisPage: number;
-		allPages: number;
-		count: number;
-	};
-}
-
-interface IGetAdsRequest {
-	page: number;
-	limit: number;
-}
-
-export const fetchAds = createAsyncThunk(
-	"ads/fetchAds",
-	async ({ page, limit }: IGetAdsRequest, thunkAPI) => {
-		const response = await axios.get<IGetAdsResponse>(
-			"https://ads-back.shutterstudio.io/ads",
-			{ signal: thunkAPI.signal, params: { page, limit } }
-		);
-
-		return response.data;
-	}
-);
+export type CreateAdPayload = Omit<IAd, "id">;
 
 interface AdsState {
 	ads: IGetAdsResponse["data"];
@@ -45,21 +20,24 @@ export const adsSlice = createSlice({
 	name: "ads",
 	initialState,
 	reducers: {
-		createAd: (state, action: PayloadAction<IAd>) => {
-			state.ads.result.push(action.payload);
-		},
+		createAd: (state, action: PayloadAction<CreateAdPayload>) => {
+			const id = Math.random();
 
-		deleteAd: (state, action: PayloadAction<IAd["id"]>) => {
-			state.ads.result = state.ads.result.filter(
-				(ad) => ad.id !== action.payload
-			);
+			state.ads.result.unshift({ id: id, ...action.payload });
 		},
 
 		updateAd: (state, action: PayloadAction<IAd>) => {
 			const index = state.ads.result.findIndex(
 				(ad) => ad.id === action.payload.id
 			);
+
 			state.ads.result[index] = action.payload;
+		},
+
+		deleteAd: (state, action: PayloadAction<IAd["id"]>) => {
+			state.ads.result = state.ads.result.filter(
+				(ad) => ad.id !== action.payload
+			);
 		},
 	},
 	extraReducers: (builder) => {

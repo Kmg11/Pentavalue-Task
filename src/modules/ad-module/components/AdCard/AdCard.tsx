@@ -49,6 +49,7 @@ export function AdCard({
 				borderRadius: t.shape.borderRadius,
 				boxShadow: t.shadows[1],
 				padding: t.spacing(2),
+				width: "100%",
 			})}
 		>
 			<AdCardHeader from_time={from_time} to_time={to_time} id={id} />

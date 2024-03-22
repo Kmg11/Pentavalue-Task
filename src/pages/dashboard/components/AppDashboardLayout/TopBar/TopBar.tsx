@@ -15,7 +15,9 @@ export function TopBar() {
 			marginTop={3}
 			sx={(t) => ({ backgroundColor: t.palette.grey[900] })}
 		>
-			<Typography variant="h6">Dashboard</Typography>
+			<Typography component="h1" variant="h6">
+				Dashboard
+			</Typography>
 
 			<AppLogoutButton size="small" />
 		</Box>

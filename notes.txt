@@ -36,15 +36,24 @@ Create AppDashboardLayout component, Fix AdCard responsive
 
 ================================================================================
 
-- Create AdForm components
-- Handle video upload
+Create AdForm component to create and edit ads
+
+- Create AppDateTimerPicker component
+- Create AppFileUploadButton and AppFormFileUploadButton component
+- Create AppUploadedFilePreview component
+- Create AppFileService
+
+================================================================================
+
+- Create UpdateAdModal component
+- make card take full width in first load
 - Create delete modal
-- Document AdForm
 - Create DeleteModal component
 - Handle edit ad functionality
 
 Testing
 
+- Test slices
 - Test all components
 - Test all hooks
 - Test all functions

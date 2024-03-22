@@ -84,11 +84,13 @@ export function AdPaginatedList({
 				flexDirection: "column",
 				alignItems: "center",
 				gap: 3,
+				width: "100%",
 			}}
 		>
 			{ads.length > 0 && (
 				<>
 					<AdsList ads={ads} />
+
 					<AppPagination
 						pagesCount={pagesCount}
 						currentPage={currentPage}
