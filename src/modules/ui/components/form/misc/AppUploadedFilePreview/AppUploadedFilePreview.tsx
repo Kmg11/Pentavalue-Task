@@ -23,7 +23,17 @@ export type AppUploadedFilePreviewProps = {
 	/**
 	 * The uploaded file to display a preview for.
 	 */
-	file: File;
+	file?: File;
+
+	/**
+	 * The default image to display if the file not uploaded.
+	 */
+	defaultImage?: string;
+
+	/**
+	 * The default video to display if the file not uploaded.
+	 */
+	defaultVideo?: string;
 };
 
 /**
@@ -33,10 +43,14 @@ export type AppUploadedFilePreviewProps = {
  */
 export function AppUploadedFilePreview({
 	file,
+	defaultImage,
+	defaultVideo,
 }: AppUploadedFilePreviewProps): JSX.Element {
-	const isImage = AppFileService.isFileImage(file);
-	const isVideo = AppFileService.isFileVideo(file);
-	const previewLink = AppFileService.convertFileToPreviewLink(file);
+	const isImage = file ? AppFileService.isFileImage(file) : false;
+	const isVideo = file ? AppFileService.isFileVideo(file) : false;
+	const previewLink = file
+		? AppFileService.convertFileToPreviewLink(file)
+		: undefined;
 
 	return (
 		<Box
@@ -60,11 +74,13 @@ export function AppUploadedFilePreview({
 				},
 			}}
 		>
-			{isImage && <img src={previewLink} alt="File Preview" />}
+			{(isImage || (defaultImage && !file)) && (
+				<img src={file ? previewLink : defaultImage} alt="File Preview" />
+			)}
 
-			{isVideo && (
+			{(isVideo || (defaultVideo && !file)) && (
 				<video controls>
-					<source src={previewLink} type="video/mp4" />
+					<source src={file ? previewLink : defaultVideo} type="video/mp4" />
 					Your browser does not support the video tag.
 				</video>
 			)}

@@ -7,9 +7,10 @@ import { AppFileService } from "@/core/services";
 
 type UseAdFormProps = {
 	ad?: IAd;
+	onSubmit?: () => void;
 };
 
-export function useAdForm({ ad }: UseAdFormProps) {
+export function useAdForm({ ad, onSubmit }: UseAdFormProps) {
 	const dispatch = useAppDispatch();
 
 	const form = useForm<AdFormValues>({
@@ -20,7 +21,7 @@ export function useAdForm({ ad }: UseAdFormProps) {
 		resolver: yupResolver(adFormSchema),
 	});
 
-	const onSubmit = form.handleSubmit((values) => {
+	const handleSubmit = form.handleSubmit((values) => {
 		const file = values.file as File;
 		const isImage = AppFileService.isFileImage(file);
 		const isVideo = AppFileService.isFileVideo(file);
@@ -35,6 +36,7 @@ export function useAdForm({ ad }: UseAdFormProps) {
 			};
 
 			dispatch(adsActions.createAd(createPayload));
+			form.reset();
 		}
 
 		if (ad) {
@@ -42,15 +44,15 @@ export function useAdForm({ ad }: UseAdFormProps) {
 				id: ad.id,
 				from_time: values.from_time,
 				to_time: values.to_time,
-				image: isImage ? previewLink : ad.image,
-				video: isVideo ? previewLink : ad.video,
+				image: file ? (isImage ? previewLink : "") : ad.image,
+				video: file ? (isVideo ? previewLink : "") : ad.video,
 			};
 
 			dispatch(adsActions.updateAd({ ...updatePayload }));
 		}
 
-		form.reset();
+		onSubmit?.();
 	});
 
-	return { form, onSubmit };
+	return { form, handleSubmit };
 }

@@ -38,7 +38,7 @@ export function AdsTimeline(): JSX.Element {
 	 */
 	const fetchAdsData = useCallback(
 		(page: number) => {
-			dispatch(fetchAds({ page, limit: 3 }));
+			dispatch(fetchAds({ page, limit: 10 }));
 		},
 		[dispatch]
 	);

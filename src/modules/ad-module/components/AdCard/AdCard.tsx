@@ -52,7 +52,14 @@ export function AdCard({
 				width: "100%",
 			})}
 		>
-			<AdCardHeader from_time={from_time} to_time={to_time} id={id} />
+			<AdCardHeader
+				from_time={from_time}
+				to_time={to_time}
+				id={id}
+				image={image}
+				video={video}
+			/>
+
 			<AdCardBody image={image} video={video} />
 		</Box>
 	);

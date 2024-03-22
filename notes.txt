@@ -45,11 +45,15 @@ Create AdForm component to create and edit ads
 
 ================================================================================
 
-- Create UpdateAdModal component
+Create UpdateAdModal component, Handle preview video or image in update
+
+================================================================================
+
+- update video or image with same video or image problem
+- test update created ad
 - make card take full width in first load
 - Create delete modal
 - Create DeleteModal component
-- Handle edit ad functionality
 
 Testing
 
