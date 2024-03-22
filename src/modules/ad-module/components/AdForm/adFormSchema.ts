@@ -4,13 +4,13 @@ import * as Yup from "yup";
 export const adFormSchema = Yup.object().shape({
 	from_time: Yup.string().required("From time is required"),
 	to_time: Yup.string().required("To time is required"),
-	file: Yup.mixed()
-		.test("file", "File must be an image or a video", (value) => {
+	files: Yup.mixed()
+		.test("files", "File must be an image or a video", (value) => {
 			if (!value) return false;
 
-			const file = value as File;
-			const isImage = AppFileService.isFileImage(file);
-			const isVideo = AppFileService.isFileVideo(file);
+			const files = value as FileList;
+			const isImage = AppFileService.isFileImage(files[0]);
+			const isVideo = AppFileService.isFileVideo(files[0]);
 
 			return isImage || isVideo;
 		})

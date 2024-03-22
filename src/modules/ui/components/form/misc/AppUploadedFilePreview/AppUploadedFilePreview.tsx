@@ -75,11 +75,15 @@ export function AppUploadedFilePreview({
 			}}
 		>
 			{(isImage || (defaultImage && !file)) && (
-				<img src={file ? previewLink : defaultImage} alt="File Preview" />
+				<img
+					src={file ? previewLink : defaultImage}
+					alt="File Preview"
+					key={file ? "image" : "defaultImage"}
+				/>
 			)}
 
 			{(isVideo || (defaultVideo && !file)) && (
-				<video controls>
+				<video controls key={file ? "video" : "defaultVideo"}>
 					<source src={file ? previewLink : defaultVideo} type="video/mp4" />
 					Your browser does not support the video tag.
 				</video>

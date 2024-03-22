@@ -22,7 +22,7 @@ export function useAdForm({ ad, onSubmit }: UseAdFormProps) {
 	});
 
 	const handleSubmit = form.handleSubmit((values) => {
-		const file = values.file as File;
+		const file = (values.files as FileList)?.[0];
 		const isImage = AppFileService.isFileImage(file);
 		const isVideo = AppFileService.isFileVideo(file);
 		const previewLink = AppFileService.convertFileToPreviewLink(file);

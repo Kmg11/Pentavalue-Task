@@ -49,8 +49,10 @@ Create UpdateAdModal component, Handle preview video or image in update
 
 ================================================================================
 
-- update video or image with same video or image problem
-- test update created ad
+Fix AppUploadedFilePreview component in update mode, Fix AppFormFileUploadButton component
+
+================================================================================
+
 - make card take full width in first load
 - Create delete modal
 - Create DeleteModal component

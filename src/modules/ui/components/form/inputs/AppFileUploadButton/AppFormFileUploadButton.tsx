@@ -20,7 +20,7 @@
  *   );
  * }
  */
-import { Controller, FieldValues, Path, UseFormReturn } from "react-hook-form";
+import { FieldValues, Path, UseFormReturn } from "react-hook-form";
 import { AppFileUploadButton, AppFileUploadButtonProps } from ".";
 import { Box } from "@mui/material";
 import { AppErrorMessage } from "../../misc";
@@ -54,21 +54,12 @@ export function AppFormFileUploadButton<T extends FieldValues>({
 }: AppFormFileUploadButtonProps<T>): JSX.Element {
 	return (
 		<Box>
-			<Controller
-				name={name}
-				control={form.control}
-				render={({ field }) => (
-					<AppFileUploadButton
-						{...props}
-						inputProps={{
-							...props.inputProps,
-							id: name,
-							onChange: (e) => {
-								field.onChange(e.target.files?.[0]);
-							},
-						}}
-					/>
-				)}
+			<AppFileUploadButton
+				{...props}
+				inputProps={{
+					...props.inputProps,
+					...form.register(name),
+				}}
 			/>
 
 			<AppErrorMessage

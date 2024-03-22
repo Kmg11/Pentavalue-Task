@@ -46,7 +46,7 @@ export function AdForm({ ad, onSubmit, onClose }: AdFormProps): JSX.Element {
 	const theme = useTheme();
 	const { form, handleSubmit } = useAdForm({ ad, onSubmit });
 
-	const file = form.watch("file");
+	const file = (form.watch("files") as FileList)?.[0];
 	const isFile = file instanceof File;
 
 	return (
@@ -67,7 +67,7 @@ export function AdForm({ ad, onSubmit, onClose }: AdFormProps): JSX.Element {
 
 			{((file && isFile) || ad) && (
 				<AppUploadedFilePreview
-					file={(file as File) || undefined}
+					file={file || undefined}
 					defaultImage={ad?.image}
 					defaultVideo={ad?.video}
 				/>
@@ -75,7 +75,7 @@ export function AdForm({ ad, onSubmit, onClose }: AdFormProps): JSX.Element {
 
 			<AppFormFileUploadButton
 				form={form}
-				name="file"
+				name="files"
 				inputProps={{ accept: "image/*, video/*" }}
 				fullWidth
 			>
