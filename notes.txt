@@ -65,7 +65,9 @@ Document AppFileService, AppCancelButton
 
 ================================================================================
 
-Testing
+Add test for AppLocalStorageService and AppFileService
+
+================================================================================
 
 - Test slices
 - Test all components

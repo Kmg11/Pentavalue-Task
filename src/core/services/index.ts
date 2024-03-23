@@ -1,2 +1,2 @@
-export * from "./AppLocalStorage.service";
-export * from "./AppFile.service";
+export * from "./AppLocalStorageService";
+export * from "./AppFileService";
