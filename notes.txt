@@ -53,9 +53,13 @@ Fix AppUploadedFilePreview component in update mode, Fix AppFormFileUploadButton
 
 ================================================================================
 
-- make card take full width in first load
-- Create delete modal
-- Create DeleteModal component
+Create DeleteAdModal component
+
+- Create AppCancelButton component
+- Create core folder for ui components
+- Fix files validation
+
+================================================================================
 
 Testing
 

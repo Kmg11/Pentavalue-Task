@@ -8,9 +8,12 @@ export const adFormSchema = Yup.object().shape({
 		.test("files", "File must be an image or a video", (value) => {
 			if (!value) return false;
 
-			const files = value as FileList;
-			const isImage = AppFileService.isFileImage(files[0]);
-			const isVideo = AppFileService.isFileVideo(files[0]);
+			const file = (value as FileList)?.[0];
+
+			if (!file) return false;
+
+			const isImage = AppFileService.isFileImage(file);
+			const isVideo = AppFileService.isFileVideo(file);
 
 			return isImage || isVideo;
 		})

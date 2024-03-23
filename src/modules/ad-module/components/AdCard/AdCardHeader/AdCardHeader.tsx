@@ -4,6 +4,7 @@ import { EditOutlined, DeleteOutline } from "@mui/icons-material";
 import { AdCardHeaderTime } from "./AdCardHeaderTime/AdCardHeaderTime";
 import { UpdateAdModal } from "./UpdateAdModal";
 import { useState } from "react";
+import { DeleteAdModal } from "./DeleteAdModal/DeleteAdModal";
 
 type AdCardHeaderProps = IAd;
 
@@ -17,6 +18,10 @@ export function AdCardHeader({
 	const [updateAdModal, setUpdateAdModal] = useState(false);
 	const openUpdateAdModal = () => setUpdateAdModal(true);
 	const closeUpdateAdModal = () => setUpdateAdModal(false);
+
+	const [deleteAdModal, setDeleteAdModal] = useState(false);
+	const openDeleteAdModal = () => setDeleteAdModal(true);
+	const closeDeleteAdModal = () => setDeleteAdModal(false);
 
 	const formattedFromTime = new Date(from_time).toLocaleString("en-GB");
 	const formattedToTime = new Date(to_time).toLocaleString("en-GB");
@@ -60,7 +65,7 @@ export function AdCardHeader({
 						<EditOutlined fontSize="small" />
 					</IconButton>
 
-					<IconButton size="small">
+					<IconButton size="small" onClick={openDeleteAdModal}>
 						<DeleteOutline fontSize="small" />
 					</IconButton>
 				</Box>
@@ -70,6 +75,12 @@ export function AdCardHeader({
 				open={updateAdModal}
 				close={closeUpdateAdModal}
 				ad={{ id, from_time, to_time, image, video }}
+			/>
+
+			<DeleteAdModal
+				open={deleteAdModal}
+				close={closeDeleteAdModal}
+				adId={id}
 			/>
 		</>
 	);

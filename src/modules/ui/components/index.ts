@@ -1,3 +1,2 @@
-export * from "./AppPagination";
-export * from "./AppMessage";
+export * from "./core";
 export * from "./form";

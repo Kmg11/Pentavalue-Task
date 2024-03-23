@@ -11,9 +11,10 @@
  *   );
  * }
  */
-import { Box, Button, Typography, useTheme } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import { useAdForm } from "./useAdForm";
 import {
+	AppCancelButton,
 	AppDateTimePicker,
 	AppFormFileUploadButton,
 	AppUploadedFilePreview,
@@ -43,7 +44,6 @@ type AdFormProps = {
  * @returns {JSX.Element} A React component representing the ad form.
  */
 export function AdForm({ ad, onSubmit, onClose }: AdFormProps): JSX.Element {
-	const theme = useTheme();
 	const { form, handleSubmit } = useAdForm({ ad, onSubmit });
 
 	const file = (form.watch("files") as FileList)?.[0];
@@ -87,20 +87,7 @@ export function AdForm({ ad, onSubmit, onClose }: AdFormProps): JSX.Element {
 			<AppDateTimePicker label="To Time" name="to_time" form={form} />
 
 			<Box sx={{ display: "flex", justifyContent: "center", gap: 1 }}>
-				{onClose && (
-					<Button
-						type="button"
-						variant="contained"
-						sx={{
-							backgroundColor: theme.palette.grey[800],
-							":active": { backgroundColor: theme.palette.grey[700] },
-							":hover": { backgroundColor: theme.palette.grey[700] },
-						}}
-						onClick={onClose}
-					>
-						Close
-					</Button>
-				)}
+				{onClose && <AppCancelButton onClick={onClose}>Close</AppCancelButton>}
 
 				<Button type="submit" variant="contained">
 					Create Ad
