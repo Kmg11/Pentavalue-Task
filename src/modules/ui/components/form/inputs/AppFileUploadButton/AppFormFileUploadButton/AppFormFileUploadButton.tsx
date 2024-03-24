@@ -21,9 +21,12 @@
  * }
  */
 import { FieldValues, Path, UseFormReturn } from "react-hook-form";
-import { AppFileUploadButton, AppFileUploadButtonProps } from ".";
+import {
+	AppFileUploadButton,
+	AppFileUploadButtonProps,
+} from "../AppFileUploadButton";
 import { Box } from "@mui/material";
-import { AppErrorMessage } from "../../misc";
+import { AppErrorMessage } from "../../../misc";
 
 /**
  * Props for the AppFormFileUploadButton component.

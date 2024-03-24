@@ -69,14 +69,20 @@ Add test for AppLocalStorageService and AppFileService
 
 ================================================================================
 
-- Test slices
-- Test all components
-- Test all hooks
-- Test all functions
+Create unit and integration tests for [AppSigninButton, AppLogoutButton, AppMessage, AppCancelButton, AppErrorMessage, AppUploadedFilePreview, AppDateTimePicker, AppFileUploadButton, AppFormFileUploadButton]
+
+================================================================================
+
+- Create AdCard test
+- Create AdList test
+- Create AdPaginatedList test
+- Create AdTimeline test
+- Create AdForm test
+- Create UpdateAdModal test
+- Create DeleteAdModal test
 
 Documentation
 
-- Create README.md file for folders
 - Create README.md file for project
 
 Finish Projects

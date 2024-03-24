@@ -21,7 +21,7 @@ import { FormControl, FormControlProps } from "@mui/material";
 import { AppErrorMessage } from "../../misc";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 
-interface AppDatePickerProps<T extends FieldValues> {
+export interface AppDatePickerProps<T extends FieldValues> {
 	/**
 	 * The name of the field in the form.
 	 */

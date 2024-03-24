@@ -62,7 +62,11 @@ export function AppFileUploadButton({
 			{...props}
 		>
 			{children}
-			<VisuallyHiddenInput type="file" {...inputProps} />
+			<VisuallyHiddenInput
+				type="file"
+				data-testid="file-upload-input"
+				{...inputProps}
+			/>
 		</Button>
 	);
 }

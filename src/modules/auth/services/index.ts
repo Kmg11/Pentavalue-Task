@@ -1,1 +1,1 @@
-export * from "./AppAuth.service";
+export * from "./AppAuth";
