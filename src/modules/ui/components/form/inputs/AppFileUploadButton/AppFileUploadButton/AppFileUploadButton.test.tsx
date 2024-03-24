@@ -1,9 +1,10 @@
-import { render, fireEvent } from "@testing-library/react";
+import { fireEvent } from "@testing-library/react";
 import { AppFileUploadButton } from "./AppFileUploadButton";
+import { renderWithProviders } from "@/core/test";
 
 describe("AppFileUploadButton", () => {
 	test("renders with default props", () => {
-		const { getByText } = render(
+		const { getByText } = renderWithProviders(
 			<AppFileUploadButton>Upload File</AppFileUploadButton>
 		);
 
@@ -13,7 +14,7 @@ describe("AppFileUploadButton", () => {
 
 	test("calls onClick when button is clicked", () => {
 		const onClick = jest.fn();
-		const { getByText } = render(
+		const { getByText } = renderWithProviders(
 			<AppFileUploadButton onClick={onClick}>Upload File</AppFileUploadButton>
 		);
 
@@ -24,7 +25,7 @@ describe("AppFileUploadButton", () => {
 	});
 
 	test("triggers file selection when button is clicked", () => {
-		const { getByText, getByTestId } = render(
+		const { getByText, getByTestId } = renderWithProviders(
 			<AppFileUploadButton>Upload File</AppFileUploadButton>
 		);
 
@@ -37,7 +38,7 @@ describe("AppFileUploadButton", () => {
 
 	test("calls onChange when file is selected", () => {
 		const onChange = jest.fn();
-		const { getByText, getByTestId } = render(
+		const { getByText, getByTestId } = renderWithProviders(
 			<AppFileUploadButton inputProps={{ onChange }}>
 				Upload File
 			</AppFileUploadButton>

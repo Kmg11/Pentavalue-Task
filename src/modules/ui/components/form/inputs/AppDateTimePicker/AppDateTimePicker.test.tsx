@@ -1,6 +1,6 @@
-import { render } from "@testing-library/react";
 import { UseFormProps, useForm } from "react-hook-form";
 import { AppDateTimePicker, AppDatePickerProps } from "./AppDateTimePicker";
+import { renderWithProviders } from "@/core/test";
 
 type FormFieldValues = {
 	date: string;
@@ -37,7 +37,7 @@ const MockAppDateTimePicker = ({
 
 describe("AppDateTimePicker", () => {
 	test("renders with default props", () => {
-		const { getByLabelText } = render(<MockAppDateTimePicker />);
+		const { getByLabelText } = renderWithProviders(<MockAppDateTimePicker />);
 
 		const dateTimePicker = getByLabelText("Select Date");
 		expect(dateTimePicker).toBeInTheDocument();
@@ -45,7 +45,7 @@ describe("AppDateTimePicker", () => {
 	});
 
 	test("renders with custom props", () => {
-		const { getByLabelText } = render(
+		const { getByLabelText } = renderWithProviders(
 			<MockAppDateTimePicker
 				componentProps={{ fullWidth: false, required: false }}
 			/>
@@ -58,7 +58,7 @@ describe("AppDateTimePicker", () => {
 	});
 
 	test("renders error message when there is an error", () => {
-		const { getByText } = render(
+		const { getByText } = renderWithProviders(
 			<MockAppDateTimePicker
 				formOptions={{
 					errors: { date: { type: "required", message: "Date is required" } },

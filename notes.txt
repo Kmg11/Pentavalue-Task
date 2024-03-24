@@ -73,7 +73,12 @@ Create unit and integration tests for [AppSigninButton, AppLogoutButton, AppMess
 
 ================================================================================
 
-- Create AdCard test
+AdCard components
+
+- Create [AdCard, AdCardHeader, UpdateAdModal, DeleteAdModal, AdCardBody] tests
+
+================================================================================
+
 - Create AdList test
 - Create AdPaginatedList test
 - Create AdTimeline test

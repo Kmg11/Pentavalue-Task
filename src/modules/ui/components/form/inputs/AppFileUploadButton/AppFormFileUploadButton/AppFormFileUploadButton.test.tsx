@@ -1,6 +1,7 @@
-import { render, fireEvent } from "@testing-library/react";
+import { fireEvent } from "@testing-library/react";
 import { useForm, UseFormProps } from "react-hook-form";
 import { AppFormFileUploadButton } from "./AppFormFileUploadButton";
+import { renderWithProviders } from "@/core/test";
 
 type MockAppFormFileUploadButtonProps = {
 	formOptions?: UseFormProps;
@@ -20,14 +21,14 @@ export const MockAppFormFileUploadButton = ({
 
 describe("AppFormFileUploadButton", () => {
 	test("renders with default props", () => {
-		const { getByText } = render(<MockAppFormFileUploadButton />);
+		const { getByText } = renderWithProviders(<MockAppFormFileUploadButton />);
 
 		const uploadButton = getByText("Upload Image");
 		expect(uploadButton).toBeInTheDocument();
 	});
 
 	test("renders error message when file is not uploaded", () => {
-		const { getByText } = render(
+		const { getByText } = renderWithProviders(
 			<MockAppFormFileUploadButton
 				formOptions={{
 					errors: {

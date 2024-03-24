@@ -61,11 +61,19 @@ export function AdCardHeader({
 						gap: 1,
 					}}
 				>
-					<IconButton size="small" onClick={openUpdateAdModal}>
+					<IconButton
+						size="small"
+						onClick={openUpdateAdModal}
+						data-testid="edit-ad-button"
+					>
 						<EditOutlined fontSize="small" />
 					</IconButton>
 
-					<IconButton size="small" onClick={openDeleteAdModal}>
+					<IconButton
+						size="small"
+						onClick={openDeleteAdModal}
+						data-testid="delete-ad-button"
+					>
 						<DeleteOutline fontSize="small" />
 					</IconButton>
 				</Box>

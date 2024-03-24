@@ -1,6 +1,6 @@
-import { render } from "@testing-library/react";
 import { AppErrorMessage } from "./AppErrorMessage";
 import { FieldErrors } from "react-hook-form";
+import { renderWithProviders } from "@/core/test";
 
 describe("AppErrorMessage", () => {
 	test("renders with error message when error exists", () => {
@@ -11,7 +11,7 @@ describe("AppErrorMessage", () => {
 			},
 		};
 
-		const { getByText } = render(
+		const { getByText } = renderWithProviders(
 			<AppErrorMessage id="fieldId" name="firstName" errors={errors} />
 		);
 
@@ -21,7 +21,7 @@ describe("AppErrorMessage", () => {
 
 	test("renders nothing when no error exists", () => {
 		const errors = {};
-		const { container } = render(
+		const { container } = renderWithProviders(
 			<AppErrorMessage id="fieldId" name="fieldName" errors={errors} />
 		);
 
@@ -36,7 +36,7 @@ describe("AppErrorMessage", () => {
 			},
 		};
 
-		const { getByText } = render(
+		const { getByText } = renderWithProviders(
 			<AppErrorMessage
 				id="fieldId"
 				name="firstName"

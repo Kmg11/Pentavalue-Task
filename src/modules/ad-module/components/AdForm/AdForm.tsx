@@ -62,6 +62,7 @@ export function AdForm({ ad, onSubmit, onClose }: AdFormProps): JSX.Element {
 				padding: t.spacing(2),
 				borderRadius: t.shape.borderRadius,
 			})}
+			data-testId="ad-form"
 		>
 			<Typography variant="h6">{ad ? "Update Ad" : "Create Ad"}</Typography>
 

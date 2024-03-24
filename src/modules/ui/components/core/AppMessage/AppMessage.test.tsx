@@ -1,10 +1,12 @@
-import { render } from "@testing-library/react";
 import { AppMessage } from "./AppMessage";
 import { theme } from "@/core/styles";
+import { renderWithProviders } from "@/core/test";
 
 describe("AppMessage", () => {
 	test("renders with default props", () => {
-		const { getByText } = render(<AppMessage>This is a message.</AppMessage>);
+		const { getByText } = renderWithProviders(
+			<AppMessage>This is a message.</AppMessage>
+		);
 		const messageElement = getByText("This is a message.");
 
 		expect(messageElement).toBeInTheDocument();
@@ -14,7 +16,7 @@ describe("AppMessage", () => {
 	});
 
 	test("renders with custom props", () => {
-		const { getByText } = render(
+		const { getByText } = renderWithProviders(
 			<AppMessage
 				color={theme.palette.primary.main}
 				fontWeight={600}

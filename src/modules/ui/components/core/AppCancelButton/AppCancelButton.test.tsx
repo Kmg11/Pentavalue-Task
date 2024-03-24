@@ -1,9 +1,11 @@
-import { render } from "@testing-library/react";
 import { AppCancelButton } from "./AppCancelButton";
+import { renderWithProviders } from "@/core/test";
 
 describe("AppCancelButton", () => {
 	test("renders with default props", () => {
-		const { getByRole } = render(<AppCancelButton>Cancel</AppCancelButton>);
+		const { getByRole } = renderWithProviders(
+			<AppCancelButton>Cancel</AppCancelButton>
+		);
 		const cancelButton = getByRole("button", { name: /cancel/i });
 
 		expect(cancelButton).toBeInTheDocument();
