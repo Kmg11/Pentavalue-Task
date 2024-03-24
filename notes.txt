@@ -87,9 +87,11 @@ Create AdForm test
 
 ================================================================================
 
-Documentation
+Type README.md file for project
 
-- Create README.md file for project
+================================================================================
+
+- Fix update ad make upload media optional in update mode
 
 Finish Projects
 

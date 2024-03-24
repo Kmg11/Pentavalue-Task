@@ -1,30 +1,33 @@
-# React + TypeScript + Vite
+# Pentavalue Task
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Links
 
-Currently, two official plugins are available:
+- [Github](https://github.com/Kmg11/My_Official_Portfolio "Github Repo")
+- [Live Preview](https://pentavalue-task.vercel.app/ "Live Preview on Vercel")
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Table of Contents
+- [Technologies](#technologies)
+- [Getting Started](#getting-started)
+- [My Links](#my-links)
 
-## Expanding the ESLint configuration
+## Technologies
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- React
+- Redux
+- Material-UI
+- react-hook-form
+- yup
 
-- Configure the top-level `parserOptions` property like this:
+## Getting Started
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+To get started with [Project Name], follow these steps:
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+1. Clone the repository
+2. Install dependencies: `cd [folder name] && npm install`
+3. Start the development server: `npm run dev`
+
+## My Links
+
+- [My Portfolio](https://kmg11.github.io/My_Official_Portfolio/)
+- [Linkedin](https://www.linkedin.com/in/kirolos-mahfouz/)
+- [Github](https://github.com/Kmg11)
