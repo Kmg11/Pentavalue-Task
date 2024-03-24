@@ -79,12 +79,11 @@ AdCard components
 
 ================================================================================
 
-- Create AdList test
-- Create AdPaginatedList test
-- Create AdTimeline test
+Create [AdList, AdPaginatedList, AdTimeline] tests
+
+================================================================================
+
 - Create AdForm test
-- Create UpdateAdModal test
-- Create DeleteAdModal test
 
 Documentation
 
