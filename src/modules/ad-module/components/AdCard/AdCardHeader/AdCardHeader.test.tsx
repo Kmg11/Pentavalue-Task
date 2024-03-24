@@ -36,7 +36,9 @@ describe("AdCardHeader", () => {
 		fireEvent.click(editButton);
 
 		// Check if update modal is opened
-		const updateModalTitle = screen.getByText(/update ad/i);
+		const updateModalTitle = screen.getByRole("heading", {
+			name: /update ad/i,
+		});
 		expect(updateModalTitle).toBeInTheDocument();
 	});
 

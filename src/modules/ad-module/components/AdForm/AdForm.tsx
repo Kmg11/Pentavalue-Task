@@ -91,7 +91,7 @@ export function AdForm({ ad, onSubmit, onClose }: AdFormProps): JSX.Element {
 				{onClose && <AppCancelButton onClick={onClose}>Close</AppCancelButton>}
 
 				<Button type="submit" variant="contained">
-					Create Ad
+					{ad ? "Update Ad" : "Create Ad"}
 				</Button>
 			</Box>
 		</Box>

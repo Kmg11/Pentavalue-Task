@@ -83,7 +83,9 @@ Create [AdList, AdPaginatedList, AdTimeline] tests
 
 ================================================================================
 
-- Create AdForm test
+Create AdForm test
+
+================================================================================
 
 Documentation
 

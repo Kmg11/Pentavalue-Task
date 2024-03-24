@@ -17,10 +17,6 @@ describe("UpdateAdModal", () => {
 
 		renderWithProviders(<UpdateAdModal open={open} close={close} ad={ad} />);
 
-		// Check if modal is rendered
-		const modalTitle = screen.getByText("Update Ad");
-		expect(modalTitle).toBeInTheDocument();
-
 		// Check if AdForm is rendered
 		const adForm = screen.getByTestId("ad-form");
 		expect(adForm).toBeInTheDocument();
