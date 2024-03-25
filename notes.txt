@@ -91,7 +91,9 @@ Type README.md file for project
 
 ================================================================================
 
-- Fix update ad make upload media optional in update mode
+Fix update ad bug
+
+================================================================================
 
 Finish Projects
 
