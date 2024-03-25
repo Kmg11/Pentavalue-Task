@@ -19,7 +19,6 @@ export const useAdFormSchema = (updateMode?: boolean) => {
 
 				return isImage || isVideo;
 			})
-			// check if updateMode is true, then the file is not required
 			.test("required", "File is required", (value) => {
 				if (updateMode) return true;
 
